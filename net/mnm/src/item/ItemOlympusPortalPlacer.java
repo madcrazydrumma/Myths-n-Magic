@@ -11,6 +11,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+import net.mnm.src.main.MNMBlocks;
 import net.mnm.src.main.Util;
 
 public class ItemOlympusPortalPlacer extends Item
@@ -32,7 +33,8 @@ public class ItemOlympusPortalPlacer extends Item
 	
 	public String getName()
 	{
-		return this.unlocalizedName;
+		//return this.unlocalizedName;
+		return this.getUnlocalizedName();
 	}
 
 	public boolean onItemUse(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, World par3World, int X, int Y, int Z, int par7, float par8, float par9, float par10) {
@@ -71,7 +73,7 @@ public class ItemOlympusPortalPlacer extends Item
 				par3World.setBlock(X + 1, Y + 7, Z, Block.oreDiamond.blockID);
 				par3World.setBlock(X, Y + 6, Z, Block.blockDiamond.blockID);
 				par3World.setBlock(X + 1, Y + 6, Z, Block.blockDiamond.blockID);
-				par3World.setBlock(X, Y + 3, Z, Block.fire.blockID);
+				par3World.setBlock(X, Y + 3, Z, MNMBlocks.olympusFire.blockID);
 			} else {
 				for (int y = 1; y < 5; y++) {
 					for (int x = -1; x < 2; x++) {
@@ -105,7 +107,7 @@ public class ItemOlympusPortalPlacer extends Item
 				par3World.setBlock(X + 1, Y + 7, Z, Block.oreDiamond.blockID);
 				par3World.setBlock(X, Y + 6, Z, Block.blockDiamond.blockID);
 				par3World.setBlock(X + 1, Y + 6, Z, Block.blockDiamond.blockID);
-				par3World.setBlock(X, Y + 3, Z, Block.fire.blockID);
+				par3World.setBlock(X, Y + 3, Z, MNMBlocks.olympusFire.blockID);
 			}
 			return true;
 		}

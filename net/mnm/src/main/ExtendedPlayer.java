@@ -49,6 +49,8 @@ public class ExtendedPlayer implements IExtendedEntityProperties
 		
 		try {
 			outputStream.writeInt(this.getReputation());
+			outputStream.close();
+			bos.close();
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}

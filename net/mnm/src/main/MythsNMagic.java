@@ -2,13 +2,14 @@ package net.mnm.src.main;
 
 import java.util.Arrays;
 
+import net.minecraftforge.client.MinecraftForgeClient;
 import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.common.MinecraftForge;
-import net.mnm.src.dimension.provider.WorldProviderOlympus;
 import net.mnm.src.event.MNMEventsHandler;
 import net.mnm.src.gui.MNMIngameGui;
 import net.mnm.src.packet.PacketHandler;
 import net.mnm.src.proxy.CommonProxy;
+import net.mnm.src.world.WorldProviderOlympus;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -45,6 +46,7 @@ public class MythsNMagic
 		data.description = Util.MOD_NAME + " is a Minecraft mod that will ...";
 		config.init(event.getSuggestedConfigurationFile());
 		MNMItems.addItems();
+		MNMBlocks.addBlocks();
 	}
 
 	@EventHandler

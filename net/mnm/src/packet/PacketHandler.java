@@ -25,10 +25,9 @@ public class PacketHandler implements IPacketHandler
 		ExtendedPlayer props = ExtendedPlayer.get((EntityPlayer) player);
 		
 		try {
-			if(((EntityPlayer)player).worldObj.isRemote) {
-				int amount = inputStream.readInt();
-				props.addReputation(amount);
-			}
+			int amount = inputStream.readInt();
+			props.addReputation(amount);
+			inputStream.close();
 		} catch (IOException e) {
 			e.printStackTrace();
 			return;

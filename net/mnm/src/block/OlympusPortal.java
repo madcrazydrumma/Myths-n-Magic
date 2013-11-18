@@ -14,10 +14,10 @@ import net.minecraft.item.ItemMonsterPlacer;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import net.mnm.src.dimension.teleporter.OlympusTeleporter;
 import net.mnm.src.main.MNMBlocks;
 import net.mnm.src.main.MNMItems;
 import net.mnm.src.main.Util;
+import net.mnm.src.world.travel.OlympusTeleporter;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -99,7 +99,7 @@ public class OlympusPortal extends BlockBreakable
 	 * Checks to see if this location is valid to create a portal and will
 	 * return True if it does. Args: world, x, y, z
 	 */
-	public boolean tryToCreatePortal(World par1World, int par2, int par3, int par4) {
+	public static boolean tryToCreatePortal(World par1World, int par2, int par3, int par4) {
 		byte b0 = 0;
 		byte b1 = 0;
 		if (par1World.getBlockId(par2 - 1, par3, par4) == Block.blockDiamond.blockID || par1World.getBlockId(par2 + 1, par3, par4) == Block.blockDiamond.blockID) {
@@ -126,7 +126,7 @@ public class OlympusPortal extends BlockBreakable
 							if (j1 != Block.blockDiamond.blockID) {
 								return false;
 							}
-						} else if (j1 != 0 && j1 != Block.fire.blockID) {
+						} else if (j1 != 0 && j1 != MNMBlocks.olympusFire.blockID) {
 							return false;
 						}
 					}
@@ -237,7 +237,8 @@ public class OlympusPortal extends BlockBreakable
 	
 	public String getName()
 	{
-		return this.unlocalizedName;
+		//return this.unlocalizedName;
+		return this.getUnlocalizedName();
 	}
 
 	@SideOnly(Side.CLIENT)

@@ -5,7 +5,7 @@ import java.io.File;
 import net.minecraftforge.common.Configuration;
 
 public class Config
-{
+{	
 	public static Configuration config;
 	public static int blockID = 2000;
 	public static int itemID = 5000;

@@ -25,8 +25,7 @@ public class WorldProviderOlympus extends WorldProvider
 	}
 
 	public IChunkProvider createChunkGenerator() {
-		return new ChunkProviderOlympus(this.worldObj,
-				this.worldObj.getSeed(), false);
+		return new ChunkProviderOlympus(this.worldObj, this.worldObj.getSeed());
 	}
 
 	public int getAverageGroundLevel() {
