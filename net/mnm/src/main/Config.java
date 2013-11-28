@@ -9,8 +9,6 @@ public class Config
 	public static Configuration config;
 	public static int blockID = 2000;
 	public static int itemID = 5000;
-	public static int biomeBlockID = 230;
-	public static int enchantmentID = 100;
 	public static int entityID = 10000;
 	public static boolean snowyWorld;
 	

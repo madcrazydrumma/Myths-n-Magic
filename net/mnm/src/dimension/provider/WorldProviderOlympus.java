@@ -38,7 +38,7 @@ public class WorldProviderOlympus extends WorldProvider
 	}
 
 	public String getDimensionName() {
-		return "UnDead";
+		return "Olympus";
 	}
 
 	public boolean renderStars() {

@@ -9,7 +9,7 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 
 public class MNMRegistry
 {
-public static int id = 500;
+	public static int id = 500;
 	
 	public static void register()
 	{

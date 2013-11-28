@@ -18,6 +18,8 @@ import net.minecraft.world.gen.MapGenBase;
 import net.minecraft.world.gen.MapGenCaves;
 import net.minecraft.world.gen.NoiseGeneratorOctaves;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import net.mnm.src.main.MNMBlocks;
+import net.mnm.src.world.WorldGenClouds;
 
 public class ChunkProviderOlympus implements IChunkProvider
 {
@@ -44,6 +46,8 @@ public class ChunkProviderOlympus implements IChunkProvider
     int[][] field_28088_i = new int[32][32];
     public byte topOlympusBlock;
     public byte fillerOlympusBlock;
+    
+    public static int placementFlagType = 2;
 
     public ChunkProviderOlympus(World world, long l)
     {
@@ -72,7 +76,7 @@ public class ChunkProviderOlympus implements IChunkProvider
      */
     public boolean chunkExists(int i, int j)
     {
-        return true;
+        return false;
     }
 
     /**
@@ -303,7 +307,15 @@ public class ChunkProviderOlympus implements IChunkProvider
 
                     double d10 = this.noise2[k1] / 512.0D;
                     double d11 = this.noise3[k1] / 512.0D;
-                    double d12 = (this.noise1[k1] / 10.0D + 1.0D) / 2.0D;
+                   // double d12 = (this.noise1[k1]) ;//Creates biggier islands.
+                  //  double d12 = (this.noise1[k1] / 512.0D /2);//craeates big smooths islands(funky overhangs).
+                   // double d12 = (this.noise1[k1] / 256.0D/2);//creates big smooth isalnnds(best so far).
+                   // double d12 = (this.noise1[k1] / 128.0D / 2);//creates big smooth isalnnds(second best so far).
+                    double d12 = (this.noise1[k1] / this.noise1[k1]/ 256.0D * 2);
+                    //System.out.println("Vaule of D12 = " + d12);
+                    
+                    
+                   // double d12 = (this.noise1[k1] / 10.0D + 1.0D) / 2.0D;//orginal
 
                     if (d12 < 0.0D)
                     {
@@ -336,7 +348,8 @@ public class ChunkProviderOlympus implements IChunkProvider
                         d8 = d8 * (1.0D - d14) + -30.0D * d14;
                     }
 
-                    ad[k1] = d8;
+                    //ad[k1] = d8 * 10;//creates big islands //smooth
+                    ad[k1] = d8;//creates big islands //smooth
                     ++k1;
                 }
             }
@@ -383,7 +396,75 @@ public class ChunkProviderOlympus implements IChunkProvider
      */
     public void populate(IChunkProvider ichunkprovider, int i, int j)
     {
-       
+    	 int k = i * 16;
+         int l = j * 16;
+         int d;
+         int y;
+         int biomegenbase;
+
+         /*if (this.random.nextInt(50) == 0)
+         {
+             d = k + this.random.nextInt(4);
+             y = this.random.nextInt(32);
+             biomegenbase = l + this.random.nextInt(4);
+             (new WorldGenClouds(MNMBlocks.cloud1.blockID, 5, 4, false)).generate(this.worldObj, this.random, d, y, biomegenbase);
+         }
+
+         if (this.random.nextInt(50) == 0)
+         {
+             d = k + this.random.nextInt(4);
+             y = this.random.nextInt(32);
+             biomegenbase = l + this.random.nextInt(4);
+             (new WorldGenClouds(MNMBlocks.cloud1.blockID, 5, 4, false)).generate(this.worldObj, this.random, d, y, biomegenbase);
+         }*/
+
+         if (this.random.nextInt(50) == 0)
+         {
+             d = k + this.random.nextInt(4);
+             y = this.random.nextInt(32);
+             biomegenbase = l + this.random.nextInt(4);
+             (new WorldGenClouds(MNMBlocks.cloud1.blockID, 5, 4, false)).generate(this.worldObj, this.random, d, y, biomegenbase);
+         }
+
+         if (this.random.nextInt(13) == 0)
+         {
+             d = k + this.random.nextInt(16);
+             y = this.random.nextInt(65) + 32;
+             biomegenbase = l + this.random.nextInt(16);
+             (new WorldGenClouds(MNMBlocks.cloud1.blockID, 5, 8, false)).generate(this.worldObj, this.random, d, y, biomegenbase);
+         }
+
+         if (this.random.nextInt(50) == 0)
+         {
+             d = k + this.random.nextInt(16);
+             y = this.random.nextInt(32) + 96;
+             biomegenbase = l + this.random.nextInt(16);
+             (new WorldGenClouds(MNMBlocks.cloud1.blockID, 5, 4, false)).generate(this.worldObj, this.random, d, y, biomegenbase);
+         }
+
+         if (this.random.nextInt(13) == 0)
+         {
+             d = k + this.random.nextInt(16);
+             y = this.random.nextInt(65) + 32;
+             biomegenbase = l + this.random.nextInt(16);
+             (new WorldGenClouds(MNMBlocks.cloud1.blockID, 5, 8, false)).generate(this.worldObj, this.random, d, y, biomegenbase);
+         }
+
+         if (this.random.nextInt(7) == 0)
+         {
+             d = k + this.random.nextInt(16);
+             y = this.random.nextInt(65) + 32;
+             biomegenbase = l + this.random.nextInt(16);
+             (new WorldGenClouds(MNMBlocks.cloud1.blockID, 5, 16, false)).generate(this.worldObj, this.random, d, y, biomegenbase);
+         }
+
+         /*if (this.random.nextInt(25) == 0)
+         {
+             d = k + this.random.nextInt(16);
+             y = this.random.nextInt(32);
+             biomegenbase = l + this.random.nextInt(16);
+             (new WorldGenClouds(MNMBlocks.cloud1.blockID, 5, 64, true)).generate(this.worldObj, this.random, d, y, biomegenbase);
+         }*/
     }
 
     public Chunk prepareChunk(int i, int j)
